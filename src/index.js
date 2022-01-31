@@ -9,7 +9,6 @@ import { Provider } from 'react-redux';
 
 const initialState = {
   count:(localStorage.getItem("myCart") !=undefined ? JSON.parse(localStorage.getItem('myCart')).length : 0),
-  data: [],
 }
 const reducer = (state=initialState, action) =>{
   console.log("redux State==>", state);

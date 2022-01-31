@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 //
 import {useDispatch} from "react-redux";
-
+import Swal from "sweetalert";
 
 const Products = () => {
     const [prods, setProds] = useState([]);
@@ -33,19 +33,19 @@ const Products = () => {
         if(localStorage.getItem('myCart') != undefined){
             let arr = JSON.parse(localStorage.getItem('myCart'));
             if(arr.includes(id)){
-                alert("Already added");
+                Swal("Already added");
                 dispatch({type:"ADD_PROD", payload:1});
             }else{
                 arr.push(id);
                 localStorage.setItem('myCart',JSON.stringify(arr));
-                alert("Added Successfully");
+                Swal("Added Successfully","","success");
                 dispatch({type:"ADD_PROD", payload:1})
             }
         }else{
             let arr = [];
             arr.push(id);
             localStorage.setItem('myCart',JSON.stringify(arr));
-            alert("Added Successfully");
+            Swal("Added Successfully","","success");
             dispatch({type:"ADD_PROD", payload: 1})
         }
     }

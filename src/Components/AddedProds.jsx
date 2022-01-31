@@ -9,7 +9,7 @@ const AddedProds = () => {
         <div>
             <MyNav />
             <br />
-               {localData.forEach((values)=>{
+               {localData.map((values)=>{
                    return(
                        <h5>{values}</h5>
                    )
