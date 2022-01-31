@@ -1,0 +1,36 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "ename": "JK",
+      "age": "21",
+      "city": "Nanded",
+      "gender": "male",
+      "salary": "28000"
+    },
+    {
+      "id": 2,
+      "ename": "JK2",
+      "age": "21",
+      "city": "Nanded",
+      "gender": "male",
+      "salary": "32000"
+    },
+    {
+      "ename": "Jawwad Khan",
+      "age": "21",
+      "city": "Pune",
+      "gender": "Male",
+      "salary": "25,000",
+      "id": 3
+    },
+    {
+      "ename": "khan",
+      "age": "21",
+      "city": "hyderabad",
+      "gender": "male",
+      "salary": "30000",
+      "id": 4
+    }
+  ]
+}

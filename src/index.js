@@ -3,10 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createStore} from "redux";
+import { Provider } from 'react-redux';
+
+
+const initialState = {
+  count:(localStorage.getItem("myCart") !=undefined ? JSON.parse(localStorage.getItem('myCart')).length : 0),
+}
+const reducer = (state=initialState, action) =>{
+  console.log("redux State==>", state);
+  
+  switch(action.type){
+    case "ADD_PROD": return {...state, count: state.count + action.payload}
+    default : return state;
+}
+}
+const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider  store={store}>
     <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
