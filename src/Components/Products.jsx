@@ -28,12 +28,13 @@ const Products = () => {
 
     }
     //
-    const addProducts = (id) =>{
+    const addProducts = (id, title) =>{
         // alert(id);
         if(localStorage.getItem('myCart') != undefined){
             let arr = JSON.parse(localStorage.getItem('myCart'));
             if(arr.includes(id)){
                 alert("Already added");
+                dispatch({type:"ADD_PROD", payload:1});
             }else{
                 arr.push(id);
                 localStorage.setItem('myCart',JSON.stringify(arr));
@@ -68,7 +69,7 @@ const Products = () => {
                             <Typography variant="body2" color="text.secondary">Rs. {vals.price} /-</Typography>
                         </CardContent>
                         <CardActions>
-                            <Button variant="outlined" size="small" style={{marginLeft:"6rem"}} onClick={()=> addProducts(vals.id)}>Add To Cart</Button>
+                            <Button variant="outlined" size="small" style={{marginLeft:"6rem"}} onClick={()=> addProducts(vals.id, vals.title)}>Add To Cart</Button>
                             {/* <Button size="small">Learn More</Button> */}
                         </CardActions>
                     </Card>

@@ -1,11 +1,19 @@
 import React from 'react';
 import MyNav from "./MyNav";
 
+let localData = localStorage.getItem('myCart');
+console.log("local data",localData)
+
 const AddedProds = () => {
     return (
         <div>
             <MyNav />
-            Added
+            <br />
+               {localData.forEach((values)=>{
+                   return(
+                       <h5>{values}</h5>
+                   )
+               })}
         </div>
     );
 };

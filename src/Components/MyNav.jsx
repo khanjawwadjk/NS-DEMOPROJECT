@@ -24,8 +24,8 @@ const MyNav = () => {
                 <AppBar position="static" style={myStyle}>
                     <Toolbar>
                         <Link to="/home" style={myStyle.Link}>Home</Link>
-                        <Link to="/prods" style={myStyle.Link}>Products</Link>
                         <Link to="/addemp" style={myStyle.Link}>Add Employees</Link>
+                        <Link to="/prods" style={myStyle.Link}>Products</Link>
                         <Link to="/added" style={myStyle.Link}><ShoppingCartOutlinedIcon/>{selector}</Link>
                     </Toolbar>
                 </AppBar>
