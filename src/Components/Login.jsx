@@ -51,3 +51,4 @@ const Login = () => {
 export default Login; 
 
 //, pattern: /^[A-Za-z]+$/i
+//http://localhost:3000/NS-DEMOPROJECT#/

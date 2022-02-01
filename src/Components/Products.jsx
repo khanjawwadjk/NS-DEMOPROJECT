@@ -28,25 +28,26 @@ const Products = () => {
 
     }
     //
-    const addProducts = (id, title) =>{
+    const addProducts = (id, title, price) =>{
         // alert(id);
         if(localStorage.getItem('myCart') != undefined){
             let arr = JSON.parse(localStorage.getItem('myCart'));
-            if(arr.includes(id)){
+            
+            if(arr.includes({id, title, price})){
                 Swal("Already added");
                 dispatch({type:"ADD_PROD", payload:1});
             }else{
-                arr.push(id);
+                arr.push({id, title, price});
                 localStorage.setItem('myCart',JSON.stringify(arr));
                 Swal("Added Successfully","","success");
-                dispatch({type:"ADD_PROD", payload:1})
+                dispatch({type:"ADD_PROD", payload:1});
             }
         }else{
             let arr = [];
-            arr.push(id);
+            arr.push({id, title, price});
             localStorage.setItem('myCart',JSON.stringify(arr));
             Swal("Added Successfully","","success");
-            dispatch({type:"ADD_PROD", payload: 1})
+            dispatch({type:"ADD_PROD", payload: 1});
         }
     }
     return (
@@ -69,7 +70,7 @@ const Products = () => {
                             <Typography variant="body2" color="text.secondary">Rs. {vals.price} /-</Typography>
                         </CardContent>
                         <CardActions>
-                            <Button variant="outlined" size="small" style={{marginLeft:"6rem"}} onClick={()=> addProducts(vals.id, vals.title)}>Add To Cart</Button>
+                            <Button variant="outlined" size="small" style={{marginLeft:"6rem"}} onClick={()=> addProducts(vals.id, vals.title, vals.price)}>Add To Cart</Button>
                             {/* <Button size="small">Learn More</Button> */}
                         </CardActions>
                     </Card>

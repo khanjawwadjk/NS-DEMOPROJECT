@@ -8,18 +8,20 @@ import { Provider } from 'react-redux';
 
 
 const initialState = {
-  count:(localStorage.getItem("myCart") !=undefined ? JSON.parse(localStorage.getItem('myCart')).length : 0),
+  count:(localStorage.getItem("myCart") != undefined ? JSON.parse(localStorage.getItem('myCart')).length : 0),
+  total:0,
 }
 const reducer = (state=initialState, action) =>{
   console.log("redux State==>", state);
   
   switch(action.type){
     case "ADD_PROD": return {...state, count: state.count + action.payload}
+    case "TOTAL_PRICE": return {...state, total: state.total + action.payload}
     
     default : return state;
 }
 }
-const store = createStore(reducer);
+const store = createStore(reducer, window.__REDUX_DEVTOOOLS_EXTENSION__ && window.__REDUX_DEVTOOOLS_EXTENSION__());
 
 ReactDOM.render(
   <React.StrictMode>
