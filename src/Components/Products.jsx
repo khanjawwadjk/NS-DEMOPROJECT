@@ -9,22 +9,34 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 //
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+//
+//
 import {useDispatch} from "react-redux";
 import Swal from "sweetalert";
 
+
+const myStyle ={
+    display:"flex",
+    flexDirection:"row",
+}
 const Products = () => {
+
     const [prods, setProds] = useState([]);
+    const [show, setShow] = useState(false);
 
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        myProducts();
+            myProducts();
     },[])
 
     const myProducts = async () =>{
         let resp =  await axios.get('https://fakestoreapi.com/products');
         setProds(resp.data);
         console.log("my products=====>",resp.data);
+        setShow(!show);
 
     }
     //
@@ -54,7 +66,12 @@ const Products = () => {
         <div>
             <MyNav />
             <br />
-            {!prods ? (<h3>Loading......</h3>) : (
+            {!show ? (<Stack spacing={1} style={myStyle}>
+                        <Skeleton variant="rectangular" width={210} height={500} width={400} style={{margin:"2rem"}}/>
+                        <Skeleton variant="rectangular" width={210} height={500} width={400} style={{margin:"2rem"}}/>
+                        <Skeleton variant="rectangular" width={210} height={500} width={400} style={{margin:"2rem"}}/>
+                        </Stack>
+    ) : (
                 <div style={{display:"flex", flexWrap:"wrap"}}>
                 {prods.map((vals)=>{
                     return(
