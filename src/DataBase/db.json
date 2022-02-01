@@ -9,14 +9,6 @@
       "salary": "28000"
     },
     {
-      "id": 2,
-      "ename": "JK2",
-      "age": "21",
-      "city": "Nanded",
-      "gender": "male",
-      "salary": "32000"
-    },
-    {
       "ename": "Jawwad Khan",
       "age": "21",
       "city": "Pune",
@@ -31,6 +23,14 @@
       "gender": "male",
       "salary": "30000",
       "id": 4
+    },
+    {
+      "ename": "Jawwad",
+      "age": "21",
+      "city": "Hyd",
+      "gender": "MALE",
+      "salary": "40,000",
+      "id": 5
     }
   ]
 }

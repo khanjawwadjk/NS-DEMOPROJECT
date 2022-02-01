@@ -54,29 +54,33 @@ const Products = () => {
         <div>
             <MyNav />
             <br />
-            <div style={{display:"flex", flexWrap:"wrap"}}>
-            {prods.map((vals)=>{
-                return(
-                    <Card sx={{ maxWidth: 345 }} key={vals.id} style={{margin:"2rem", width:"20rem"}}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image={vals.image}
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">{vals.title}</Typography>
-                            <Typography variant="body2" color="text.secondary">{vals.description}</Typography>
-                            <Typography variant="body2" color="text.secondary">Rs. {vals.price} /-</Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button variant="outlined" size="small" style={{marginLeft:"6rem"}} onClick={()=> addProducts(vals.id, vals.title, vals.price)}>Add To Cart</Button>
-                            {/* <Button size="small">Learn More</Button> */}
-                        </CardActions>
-                    </Card>
-                )
-            })}
-            </div>
+            {!prods ? (<h3>Loading......</h3>) : (
+                <div style={{display:"flex", flexWrap:"wrap"}}>
+                {prods.map((vals)=>{
+                    return(
+                        <Card sx={{ maxWidth: 345 }} key={vals.id} style={{margin:"2rem", width:"20rem"}}>
+                            <CardMedia
+                                component="img"
+                                height="140"
+                                image={vals.image}
+                                alt="green iguana"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="div">{vals.title}</Typography>
+                                <Typography variant="body2" color="text.secondary">{vals.description}</Typography>
+                                <Typography variant="body2" color="text.secondary">Rs. {vals.price} /-</Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Button variant="outlined" size="small" style={{marginLeft:"6rem"}} onClick={()=> addProducts(vals.id, vals.title, vals.price)}>Add To Cart</Button>
+                                {/* <Button size="small">Learn More</Button> */}
+                            </CardActions>
+                        </Card>
+                    )
+                })}
+                </div>
+
+            )}
+            
         </div>
     );
 };
